@@ -1,0 +1,89 @@
+<template name="student">
+    <h2>Student</h2>
+    <!--form info-->
+    <p>
+        <button class="btn btn-primary js-add-new">Add New</button>
+    </p>
+
+    {{> tabular table=TabularTables.Student class="table table-striped table-bordered table-condensed"}}
+</template>
+
+<template name="studentInsert">
+    <h1>Student Insert</h1>
+    {{#autoForm collection="Student" id="studentInsert" type="insert"}}
+        <!--<div class="row">-->
+        <div class="col-md-4">
+            {{> afQuickField name='name' }}
+        </div>
+        <div class="col-md-4">
+            {{> afQuickField name='gender' }}
+        </div>
+        <div class="col-md-4">
+            {{> afQuickField name='subject'}}
+
+        </div>
+        <div class="col-md-4">
+            {{> afQuickField name='advent'}}
+        </div>
+        <div class="col-md-4">
+            {{> afQuickField name='dob'}}
+        </div>
+
+        <div class="col-md-12">
+            {{> afQuickField name='address'}}
+            <!--type="select" options=provinces}}-->
+            <button type="submit" class="btn btn-primary ">Save</button>
+            <button type="reset" class="btn btn-default ">Reset</button>
+        </div>
+        <!--</div>-->
+    {{/autoForm}}
+
+
+</template>
+
+
+<template name="studentUpdate">
+    <h1>Student Update</h1>
+    <!--{{> quickForm collection="Student" doc=data id="studentUpdate" type="update"}}-->
+
+    {{#autoForm collection="Student" doc=data id="studentUpdate" type="update"}}
+        <div class="col-md-4">
+            {{> afQuickField name='name' }}
+        </div>
+        <div class="col-md-4">
+            {{> afQuickField name='gender' }}
+        </div>
+        <div class="col-md-4">
+            {{> afQuickField name='subject'}}
+        </div>
+        <div class="col-md-4">
+            {{> afQuickField name='advent'}}
+        </div>
+        <div class="col-md-4">
+            {{> afQuickField name='dob'}}
+        </div>
+
+        <div class="col-md-12">
+            {{> afQuickField name='address'}}
+            <!--type="select" options=provinces}}-->
+            <button type="submit" class="btn btn-primary ">Save</button>
+            <button type="reset" class="btn btn-default ">Reset</button>
+        </div>
+    {{/autoForm}}
+</template>
+
+<template name="studentAction">
+    <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle fa fa-bars" type="button" id="dropdownMenu1"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+
+
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <a href="#" class="js-update fa fa-edit ">Edit</a>
+            <br>
+            <a href="#" class="js-destroy fa fa-trash">Delete</a>
+        </ul>
+    </div>
+
+</template>

@@ -1,0 +1,65 @@
+<template name="teacher">
+    <h2>Teacher</h2>
+    <!--form info-->
+    <p>
+        <button class="btn btn-primary js-add-new">Add New</button>
+    </p>
+
+    {{> tabular table=TabularTables.Teacher class="table table-striped table-bordered table-condensed"}}
+</template>
+
+<template name="teacherInsert">
+    <h1>Teacher Insert</h1>
+    {{#autoForm collection="Teacher" id="teacherInsert" type="insert"}}
+        <!--<div class="row">-->
+        <div class="col-md-4">
+            {{> afQuickField name='name' }}
+            {{> afQuickField name='gender' }}
+        </div>
+        <div class="col-md-4">
+            {{> afQuickField name='subject'}}
+            {{> afQuickField name='phone'}}
+        </div>
+        <div class="col-md-12">
+            {{> afQuickField name='address'}}
+            <!--type="select" options=provinces}}-->
+            <button type="submit" class="btn btn-primary ">Save</button>
+            <button type="reset" class="btn btn-default ">Reset</button>
+        </div>
+        <!--</div>-->
+    {{/autoForm}}
+
+
+</template>
+
+
+<template name="teacherUpdate">
+    <h1>Teacher Update</h1>
+    <!--{{> quickForm collection="Teacher" doc=data id="teacherUpdate" type="update"}}-->
+    {{#autoForm collection="Teacher" doc=data id="teacherUpdate" type="update"}}
+        <div class="col-md-4">
+            {{> afQuickField name='name' }}
+        </div>
+        <div class="col-md-4">
+            {{> afQuickField name='gender' }}
+        </div>
+        <div class="col-md-4">
+            {{> afQuickField name='subject'}}
+        </div>
+        <div class="col-md-4">
+            {{> afQuickField name='phone'}}
+        </div>
+        <div class="col-md-12">
+            {{> afQuickField name='address'}}
+            <!--type="select" options=provinces}}-->
+            <button type="submit" class="btn btn-primary ">Save</button>
+            <button type="reset" class="btn btn-default ">Reset</button>
+        </div>
+    {{/autoForm}}
+</template>
+
+<template name="teacherAction">
+    <a href="#" class="js-update">Edit</a>
+    /
+    <a href="#" class="js-destroy">Delete</a>
+</template>

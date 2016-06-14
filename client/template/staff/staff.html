@@ -1,0 +1,78 @@
+<template name="staff">
+    <h2>Staff</h2>
+    <!--form info-->
+    <p>
+        <button class="btn btn-primary js-add-new">Add New</button>
+    </p>
+
+    {{> tabular table=TabularTables.Staff class="table table-striped table-bordered table-condensed"}}
+</template>
+
+<template name="staffInsert">
+    <h1>Staff Insert</h1>
+    {{#autoForm collection="Staff" id="staffInsert" type="insert"}}
+        <!--<div class="row">-->
+        <div class="col-md-4">
+            {{> afQuickField name='name' }}
+        </div>
+        <div class="col-md-4">
+            {{> afQuickField name='gender' }}
+        </div>
+        <div class="col-md-4">
+            {{> afQuickField name='dob'}}
+
+        </div>
+        <div class="col-md-12">
+            {{> afQuickField name='address'}}
+            <!--type="select" options=provinces}}-->
+            <button type="submit" class="btn btn-primary ">Save</button>
+            <button type="reset" class="btn btn-default ">Reset</button>
+        </div>
+        <!--</div>-->
+    {{/autoForm}}
+
+
+</template>
+
+
+<template name="staffUpdate">
+    <h1>Staff Update</h1>
+    <!--{{> quickForm collection="Staff" doc=data id="staffUpdate" type="update"}}-->
+
+    {{#autoForm collection="Staff" doc=data id="staffUpdate" type="update"}}
+        <div class="col-md-4">
+            {{> afQuickField name='name' }}
+        </div>
+        <div class="col-md-4">
+            {{> afQuickField name='gender' }}
+        </div>
+        <div class="col-md-4">
+            {{> afQuickField name='dob'}}
+
+        </div>
+        <div class="col-md-12">
+            {{> afQuickField name='address'}}
+            <!--type="select" options=provinces}}-->
+            <button type="submit" class="btn btn-primary ">Save</button>
+            <button type="reset" class="btn btn-default ">Reset</button>
+        </div>
+    {{/autoForm}}
+</template>
+
+<template name="staffAction">
+    <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle fa fa-bars" type="button" id="dropdownMenu1"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+
+
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <a href="#" class="js-update fa fa-edit ">Edit</a>
+            <br>
+            <a href="#" class="js-destroy fa fa-trash">Delete</a>
+        </ul>
+    </div>
+    <!--<a href="#" class="js-update">Edit</a>-->
+    <!--/-->
+    <!--<a href="#" class="js-destroy">Delete</a>-->
+</template>
