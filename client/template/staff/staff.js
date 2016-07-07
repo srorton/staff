@@ -1,16 +1,18 @@
 // Index
+Template.staff.onRendered(function(){
+   //create new alertify
+    createNewAlertify('staff');
+});
 Template.staff.events({
     'click .js-add-new': function () {
-        FlowRouter.go('staffInsert');
+        alertify.staff(renderTemplate(Template.staffInsert))
+        .set({
+            title:fa('plus', 'staff')
+        })
+        .maximize();
     }
 });
-//binding from html field address
-//Template.staffInsert.helpers({
-//    provinces: function(){
-//        return [{label: 'Battambang', value: 'battambang'
-//        },{ label:'Siem Reap',value:'siem reap'}]
-//    }
-//});
+
 
 // Update
 Template.staffUpdate.helpers({
@@ -54,6 +56,12 @@ AutoForm.addHooks('staffUpdate',{
 
 });
 AutoForm.addHooks('staffInsert',{
+    before:{
+        insert:function (doc){
+            doc._id= ideGenerator.gen(Staff, 4);
+            return doc;
+        }
+    },
     onSuccess: function(formType, result) {
         Bert.alert('success', 'success', 'growl-top-right' );
 
